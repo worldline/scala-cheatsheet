@@ -2,12 +2,12 @@
 def mapmake[T](g: T = >T)(seq: List[T]) = seq.map(g)
 
 // Variance.
-class Set[A](var head: A, var tail: List[A])
+class MyList[A](var head: A, var tail: List[A])
 
 // Ok
-val s = new Set(4, List(1,2,3)) // Set[Int]
+val s = new MyList(4, List(1,2,3)) // Set[Int]
 // Not Ok
-val nok = new Set("head", List(1,2,3))
+val nok = new MyList("head", List(1,2,3))
 
 // Type Bounds
 trait A

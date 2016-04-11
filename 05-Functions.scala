@@ -13,8 +13,8 @@ def log(x: Any): Unit = println(x)
 (1 to 5).map(x => x * x)
 
 // in a function declaration, underscore is positionally matched argument 
-(1 to 5).map(2 * _)        // when one argument,                                             
-(1 to 5).reduceLeft(_ + _) // Two arguments...
+(1 to 5).map(2 * _)        // 1 argument                                             
+(1 to 5).reduceLeft(_ + _) // 2 arguments
                             
 // block style; returns last expression
 (1 to 5).map { x => val y=x*2; y } 
@@ -29,9 +29,9 @@ def zscore(mean: Double, sd: Double) = (x: Double) => (x - mean) / sd
 // currying, obvious syntax
 
 def zscore(mean: Double, sd: Double)(x: Double) = (x - mean) / sd   
-// currying, sugar syntax. but then:
-val normer = zscore(7, 0.4) _   // need trailing underscore to get the partial function, only for the sugar version
-
-def mapmake[T](g: T => T)(seq: List[T]) = seq.map(g)    //generic type.
+// currying, sugar syntax. but then, you need
+// (only for the sugar version)
+// trailing underscore to get the partial function : 
+val normer = zscore(7, 0.4) _   
 
 def sum(args: Int*) = args.reduceLeft(_ + _) // varargs
