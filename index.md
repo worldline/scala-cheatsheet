@@ -446,6 +446,41 @@ val urlRe = """(https?:\/\/)?([\da-z\.-]+)([\/\w \.-]*)\/?""".r
 
 ## Collections API
 
+### Sublists and element access
+
+```scala 
+val words = List("the", "quick", "fox", "jumped", "over")
+
+words.length        //> Int = 5
+words(2) 		//> String = fox
+words.apply(2) 	//> String = fox
+
+words.head   //> String = the
+words.tail   //> List[String] = List(quick, fox, jumped, over)
+
+words.last        //> String = over
+words.init        //> List[String] = List(the, quick, fox, jumped)
+
+words.mkString(" ") //> String = the quick fox jumped over
+
+words.contains("the")  //> Boolean = true
+words.contains("a")    //> Boolean = false
+```
+
+### Creating new Lists
+
+```scala 
+words.reverse 
+//> List(over, jumped, fox, quick, the)
+
+words.updated(0, "a") 
+//> List(a, quick, fox, jumped, over)
+
+val words2 = List("the", "lazy", "dog") 
+val phrase = words ++ words2                    
+//> List(the, quick, fox, jumped, over, the, lazy, dog)
+```
+
 ### Higher order functions on collections
 
 #### Filtering with a predicate
