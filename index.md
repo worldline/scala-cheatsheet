@@ -365,19 +365,18 @@ package object mypkg {
 ## Parametrization (generics)
 ```scala 
 // generic type.
-def mapmake[T](g: T = >T)(seq: List[T]) = seq.map(g)
+def mapmake[T](g: T => T)(seq: List[T]) = seq.map(g)
 
 // Variance.
 class MyList[A](var head: A, var tail: List[A])
 
 // Ok
-val s = new MyList(4, List(1,2,3)) // Set[Int]
+new MyList(4, List(1, 2, 3)) 
 // Not Ok
-val nok = new MyList("head", List(1,2,3))
+new MyList("head", List(1, 2, 3))
 
 // Type Bounds
 trait A
-trait B
 
 // A as upper bound (java "<T extends A>" equivalent)
 class Upper[T<:A](var item: T)
