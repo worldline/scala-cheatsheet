@@ -519,10 +519,17 @@ fibos.map(2*)
 
 fruits.map(_.toList)
 // List(List(a, p, p, l, e, s), List(o, r, a, n, g, e, s), List(p, e, a, r, s))
+
+List(List(1, 2, 3), List(4, 5, 6)).flatten      
+// List[Int] = List(1, 2, 3, 4, 5, 6)
+
 fruits.flatMap(_.toList)
 // List(a, p, p, l, e, s, o, r, a, n, g, e, s, p, e, a, r, s)
 fruits.map(_.toList).flatten 
 // same, but less efficient
+
+List("abc", "def", "ghi").transpose             
+// List[List[Char]] = List(List(a, d, g), List(b, e, h), List(c, f, i))
 ```
 
 #### Combine elements
