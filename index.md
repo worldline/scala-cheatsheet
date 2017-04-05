@@ -105,6 +105,8 @@ val j = p.x
 
 ```scala    
 val fruits = "apples" :: "oranges" :: "pears" :: Nil
+// same as val fruits = List("apples", "oranges", "pears")
+
 // Nil is same as List.empty[Nothing]
 
 val fibos = List(1, 2, 3, 5, 8, 13)
@@ -125,6 +127,9 @@ xs(2)
 #### Basic methods
 
 ```scala                                                                
+val fibos = List(1, 2, 3, 5, 8, 13)
+val fruits = List("apples", "oranges", "pears")
+
 fruits.head   // "apples"
 fruits.tail   // List(oranges, pears)
 
@@ -149,6 +154,9 @@ fruits.init     // List(apples, oranges)
 #### Methods which build new lists
 
 ```scala                                                                
+val fibos = List(1, 2, 3, 5, 8, 13)
+val fruits = List("apples", "oranges", "pears")
+
 fibos.take(4)     // List(1, 2, 3, 5)
 fibos.drop(4)     // List(8, 13)
 fibos.splitAt(4)  // (List(1, 2, 3, 5),List(8, 13))
@@ -168,6 +176,9 @@ fruits ::: List("bananas", "melons")
 #### Order
 
 ```scala      
+val fibos = List(1, 2, 3, 5, 8, 13)
+val fruits = List("apples", "oranges", "pears")
+
 fibos.min // 1
 fibos.max // 13
 
@@ -183,6 +194,9 @@ fruits.sortBy(_.length)
 #### Zip / unzip
 
 ```scala  
+val fibos = List(1, 2, 3, 5, 8, 13)
+val fruits = List("apples", "oranges", "pears")
+
 fruits zip fibos
 // List((apples,1), (oranges,2), (pears,3))
 
@@ -486,6 +500,9 @@ val phrase = words ++ words2
 #### Filtering with a predicate
 
 ```scala 
+val fibos = List(1, 2, 3, 5, 8, 13)
+val fruits = List("apples", "oranges", "pears")
+
 fruits.exists(_.length == 5) 
 // true ("pears".length is 5)  
 fruits.forall(_.length == 5) 
@@ -511,11 +528,15 @@ fibos.span(i => i <= 8)
 #### Transformation
 
 ```scala 
+val fibos = List(1, 2, 3, 5, 8, 13)
+
 fibos.map(i => i * 2) // List(2, 4, 6, 10, 16, 26)
 // can also be written
 fibos.map(_ * 2)
 // or even (since * is a method of Int)
 fibos.map(2*)
+
+val fruits = List("apples", "oranges", "pears")
 
 fruits.map(_.toList)
 // List(List(a, p, p, l, e, s), List(o, r, a, n, g, e, s), List(p, e, a, r, s))
@@ -535,6 +556,8 @@ List("abc", "def", "ghi").transpose
 #### Combine elements
 
 ```scala 
+val fibos = List(1, 2, 3, 5, 8, 13)
+
 fibos.reduce((x, y) => x + y)
 fibos.sum     // 32
 
